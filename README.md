@@ -1,16 +1,25 @@
-# machine_learning_project-supervised-learning
+# Supervised Learning Project
 
-## Project Outcomes
-- Supervised Learning: use supervised learning techniques to build a machine learning model that can predict whether a patient has diabetes or not, based on certain diagnostic measurements.The project involves three main parts: exploratory data analysis, preprocessing and feature engineering, and training a machine learning model. 
-### Duration:
-Approximately 3 hours and 20 minutes.
-### Project Description:
-In this projects, you will apply supervised learning techniques to a real-world data set and use data visualization tools to communicate the insights gained from the analysis.
+## Part 1: EDA
 
-The data set for this project is the "Diabetes" dataset from the National Institute of Diabetes and Digestive and Kidney Diseases 
-The project will involve the following tasks:
+Answers to the questions can be found near the top of the EDA.ipynb notebook in the Notebooks folder.
 
--	Exploratory data analysis and pre-processing: We will import and clean the data sets, analyze and visualize the relationships between the different variables, handle missing values and outliers, and perform feature engineering as needed.
--	Supervised learning: We will use the Diabetes dataset to build a machine learning model that can predict whether a patient has diabetes or not, using appropriate evaluation metrics such as accuracy, precision, recall, F1-score, and ROC-AUC. We will select at least two models, including one ensemble model, and compare their performance.
 
-The ultimate goal of the project is to gain insights from the data sets and communicate these insights to stakeholders using appropriate visualizations and metrics to make informed decisions based on the business questions asked."
+## Part 2: Preprocessing & Feature Engineering
+
+The handling of missing values & outliers as well as scaling and normalization are labeled in the 'Feature Engineering.ipynb' notebook in the Notebooks folder.
+
+
+## Part 3: Training ML Model
+
+I trained PCA and Random Forest on the data set, comparing the predictor variables that were considered most important by either. Can be found in the 'Training ML Model.ipynb' notebook in the Notebooks folder.
+
+## Part 4: Conclusion
+
+- It seems as if pregnancy is one of the primary contributing factors. This was seen in the PCA, and makes sense intuitively. This does not quite align with what the random forest concluded, but the accuracy of that model is poor enough that it is likely wise to take it with a grain of salt. The PCA gave pregnancy a very high explained variance ratio, at just over 26%. Random forest was barely above 8% for pregnancies.
+
+- Glucose was seen by both models to be either the largest or second largest factor correlating with incidences of diabetes. This also makes sense- insulin is used to control glucose levels. Impaired insulin production due to diabetes will probably result in higher blood sugar levels. The PCA contributed 21.7% of the variance to glucose levels. The random forest estimated over 25%.
+
+- BMI and Age were the two factors that I initially thought would be the two most principal components, but this turned out to be quite wrong. PCA placed Age last, with less than 5% contribution, and BMI at under 7%.
+
+- The diabetes pedigree function predicts the probability of diabetes depending on their family genetics. The PCA predicted that this explains 5.3% of the variation, and the random forest estimated 12.1%. At the very least genetics do not appear to be the largest factor when predicting if someone will have diabetes. This leaves controllable factors such as glucose levels and BMI as the most impactful. This knowledge can be used by individuals to mitigate their risk of developing diabetes later in life. But that isn't exactly a new revelation.
